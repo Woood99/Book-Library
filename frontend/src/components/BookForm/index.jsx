@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+
+import { addBook } from '../../redux/books/actionCreators';
 
 import './BookForm.scss';
 
 import Input from '../../uiForm/Input';
 
 const BookForm = () => {
+   const dispatch = useDispatch();
    const { register, reset, handleSubmit } = useForm();
 
    const onSubmit = data => {
-      console.log(data);
+      dispatch(addBook(data));
       reset();
    };
 

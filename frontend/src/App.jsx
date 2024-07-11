@@ -1,5 +1,6 @@
 import BookForm from './components/BookForm';
 import BookList from './components/BookList';
+import Filter from './components/Filter';
 
 function App() {
    return (
@@ -12,6 +13,7 @@ function App() {
                <BookForm />
             </div>
             <div className="app-right-column">
+               <Filter />
                <BookList />
             </div>
          </main>
