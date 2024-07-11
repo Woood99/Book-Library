@@ -7,13 +7,18 @@ import { addBook } from '../../redux/books/actionCreators';
 import './BookForm.scss';
 
 import Input from '../../uiForm/Input';
+import { v4 as uuidv4 } from 'uuid';
 
 const BookForm = () => {
    const dispatch = useDispatch();
    const { register, reset, handleSubmit } = useForm();
 
    const onSubmit = data => {
-      dispatch(addBook(data));
+      const book = {
+         ...data,
+         id: uuidv4(),
+      };
+      dispatch(addBook(book));
       reset();
    };
 

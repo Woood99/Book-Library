@@ -5,7 +5,6 @@ import './BookList.scss';
 
 const BookList = () => {
    const books = useSelector(state => state.books);
-   console.log(books);
    return (
       <div className="app-block book-list">
          <h2>Book List</h2>
@@ -15,7 +14,7 @@ const BookList = () => {
             <ul>
                {books.map((book, index) => {
                   return (
-                     <li key={index}>
+                     <li key={book.id}>
                         <div className="book-info">
                            <span className="font-bold">{++index}.</span>
                            <span> {book.title}</span>
