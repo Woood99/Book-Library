@@ -4,34 +4,26 @@ import { useForm } from 'react-hook-form';
 
 import { addBook } from '../../redux/books/actionCreators';
 
-import './BookForm.scss';
-
 import Input from '../../uiForm/Input';
-import { v4 as uuidv4 } from 'uuid';
 
 import getRandomValueFromArray from '../../helpers/getRandomValueFromArray';
 import randomBooksData from '../../data/books.json';
+import createBook from '../../utils/createBook';
+
+import './BookForm.scss';
 
 const BookForm = () => {
    const dispatch = useDispatch();
    const { register, reset, handleSubmit } = useForm();
 
    const onSubmit = data => {
-      const book = {
-         ...data,
-         id: uuidv4(),
-         isFavorite: false,
-      };
+      const book = createBook(data);
       dispatch(addBook(book));
       reset();
    };
 
    const handleAddRandomBook = () => {
-      const book = {
-         ...getRandomValueFromArray(randomBooksData),
-         id: uuidv4(),
-         isFavorite: false,
-      };
+      const book = createBook(getRandomValueFromArray(randomBooksData));
       dispatch(addBook(book));
    };
 
