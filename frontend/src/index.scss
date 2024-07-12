@@ -76,3 +76,13 @@
       align-self: unset;
    }
 }
+
+
+.rbs-map__circle {
+   width: 13px;
+   height: 13px;
+   border-radius: 50%;
+   background: #005bff;
+   border: 2px solid #ffffff;
+   box-shadow: 0 7px 10px #0000001a;
+}

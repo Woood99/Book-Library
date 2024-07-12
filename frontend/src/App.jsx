@@ -1,23 +1,16 @@
-import BookForm from './components/BookForm';
-import BookList from './components/BookList';
-import Filter from './components/Filter';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Main from './pages/Main';
+import Map from './pages/Map';
 
 function App() {
    return (
-      <div className="app">
-         <header className="app-header py-6">
-            <h1>Book Library App</h1>
-         </header>
-         <main className="app-main">
-            <div className="app-left-column">
-               <BookForm />
-            </div>
-            <div className="app-right-column">
-               <Filter />
-               <BookList />
-            </div>
-         </main>
-      </div>
+      <BrowserRouter>
+         <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/map" element={<Map />} />
+         </Routes>
+      </BrowserRouter>
    );
 }
 
